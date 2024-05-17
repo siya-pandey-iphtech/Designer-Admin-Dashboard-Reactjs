@@ -19,18 +19,18 @@ const MainLayout = () => {
     <div className="flex flex-col h-screen">
       {/* Header */}
       <header className="h-12 bg-blue-500 shadow-lg z-50 text-white py-3 px-10 flex  justify-between ">
-        <div className="flex">
+        <div className="flex ">
           <button>
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
-          <p className="mx-10">React Material Admin Full</p>
+          <p className="mx-10 text-nowrap">React Material Admin Full</p>
         </div>
         <div className="flex">
           <img
             className="rounded-full  w-7 h-7 "
             src="https://static.wikia.nocookie.net/a86f75a1-4894-4636-8cf3-00e9b3bd3fbb/smart/width/386/height/259"
           ></img>
-          <p className="mx-3">Hi , admin </p>
+          <p className="mx-3 text-nowrap" >Hi , admin </p>
         </div>
       </header>
 
