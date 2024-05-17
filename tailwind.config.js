@@ -9,6 +9,8 @@ export default {
       width: {
         '120': '30rem', // Add more widths as needed
         // ...
+       '125':'35rem',
+        '130':'40rem'
       },
       fontFamily: {
         'sans': ['Inter', 'sans-serif'],

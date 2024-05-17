@@ -3,11 +3,7 @@ import {
   faCartShopping,
   faFile,
   faHome,
-  
-
-  
   faUser,
-
 } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +11,7 @@ import ProfileViewer from "../components/ProfileViewer";
 import Files from "./Files";
 import MediaCount from "../components/MediaCount";
 import ProjectAnalytics from "../components/ProjectAnalytics";
+import TaskBoard from "../components/TaskBoard";
 
 const MainLayout = () => {
   return (
@@ -66,7 +63,7 @@ const MainLayout = () => {
               <li className="flex items-center space-x-6">
                 <FontAwesomeIcon icon={faUser} />
                 <span>User</span>
-                <span className="bg-red-400 text-white text-xs p-1 rounded-full h-4 flex items-center transform -translate-y-3 -translate-x-12">
+                <span className="bg-pink-500 text-white text-xs p-1 rounded-full h-4 flex items-center transform -translate-y-3 -translate-x-12">
                   New
                 </span>
               </li>
@@ -77,20 +74,23 @@ const MainLayout = () => {
             </ul>
           </div>
         </nav>
-        <main className="flex-grow bg-blue-50 p-4">
+        <main className="flex-grow bg-purple-50 p-4">
           {/* BreadCrumbBar */}
-          <div className="border h-10 z-10 shadow-lg bg-white w-full m-1 "></div>
+          <div className=" h-10 z-10 shadow-lg bg-white w-full m-1 "></div>
 
           {/* Profile Viewer  */}
-         <div className="flex">
-
-          <ProfileViewer/>
-          <Files/>
-         
-          </div>
           <div className="flex">
-          <MediaCount/>
-          <ProjectAnalytics/>
+            <ProfileViewer />
+            <Files />
+          </div>
+          <div className="flex w-full">
+            <div className="flex w-120">
+              <MediaCount />
+              <ProjectAnalytics />
+            </div>
+            <div className="flex w-full">
+              <TaskBoard />
+            </div>
           </div>
         </main>
       </div>

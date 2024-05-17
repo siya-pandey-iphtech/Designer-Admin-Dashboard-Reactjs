@@ -11,3 +11,14 @@ export const media=[
     {name:'Followers',count:'12.8K',image:'src/assets/img/FollowersIcon.png'},
     {name:'Following',count:'1.1K', image:'src/assets/img/FollowingIcon.png'}
 ]
+
+export const tasks=[
+  {task:'Call conference with a New', time :'10:28'},
+  {task:'Presentation Demo Ecological',time :'16:39'},
+  {task:'Call with PR Manager', time:'15:58'},
+  {task:'Interview with a new UI/UX', time:'17:20'},
+  {task:'Call conference with a New',time:'11:38'},
+  {task:'Presentation Demo Ecological',time:'12:34'},
+  {task:'Sales Presentation',time:'12:42'}
+
+]
