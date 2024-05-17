@@ -5,7 +5,7 @@ import {
   faFacebookF,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-
+import Image from "../assets/img/Image.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const ProfileViewer = () => {
   return (
@@ -13,7 +13,7 @@ const ProfileViewer = () => {
       <div className="   z-10 shadow-lg bg-white w-125 m-1 mt-4 flex justify-around items-center py-5 px-7  ">
         {/* Profile Image  */}
         <div className="flex flex-col justify-center items-center w-1/3 ">
-          <img className="w-full" src="../../src/assets/img/Image.png"></img>
+          <img className="w-full" src={Image}></img>
           <span className="bg-pink-500 mt-3 text-2xs px-2 py-1 text-white rounded-full ">
             PRO
           </span>
