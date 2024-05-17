@@ -16,22 +16,22 @@ const WorkFiles = () => {
       </div>
 {/* Design folder */}
       <div className="relative mt-2 bg-green-500">
-<img className="absolute"src="../../src/assets/img/Folder Pink.png"/>
-<img  className="absolute  translate-x-14 translate-y-2" src="../../src/assets/img/Eye Pink.png"/>
+<img className="absolute"src="/img/Folder Pink.png"/>
+<img  className="absolute  translate-x-14 translate-y-2" src="/img/Eye Pink.png"/>
 <p className="absolute text-xs text-pink-700 transform translate-y-9 px-5 ">Design</p>
         <p className="absolute text-2xs text-pink-700 transform translate-y-12 px-5 ">154</p>
       </div>
 
       {/* Mobile Folder */}
       <div className="relative mt-2 ">
-<img className="absolute"src="../../src/assets/img/MobileFolder.png"/>
-<img  className="absolute  translate-x-14 translate-y-2" src="../../src/assets/img/MobileIcon.png"/>
+<img className="absolute"src="/img/MobileFolder.png"/>
+<img  className="absolute  translate-x-14 translate-y-2" src="/img/MobileIcon.png"/>
 <p className="absolute text-xs text-green-600 transform translate-y-9 px-5 ">Mobile</p>
         <p className="absolute text-2xs text-green-600 transform translate-y-12 px-5 ">98</p>
       </div>
       {/* Illustration Folder */}
       <div className="relative mt-2 ">
-<img className="absolute"src="../../src/assets/img/IllustrationFolder.png"/>
+<img className="absolute"src="/img/IllustrationFolder.png"/>
 <p className="absolute text-xs text-yellow-600 transform translate-y-9 px-4  ">Illustration</p>
         <p className="absolute text-2xs text-yellow-600 transform translate-y-12 px-4 ">154</p>
       </div>
