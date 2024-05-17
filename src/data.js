@@ -6,10 +6,10 @@ export const filesData = [
   ];
 
 export const media=[
-    {name:'Posts', count:194 , image:'src/assets/img/PostsIcon.png'},
-    {name:'Projects',count:554, image:'src/assets/img/ProjectIcon.png'},
-    {name:'Followers',count:'12.8K',image:'src/assets/img/FollowersIcon.png'},
-    {name:'Following',count:'1.1K', image:'src/assets/img/FollowingIcon.png'}
+    {name:'Posts', count:194 , image:'/img/PostsIcon.png'},
+    {name:'Projects',count:554, image:'/img/ProjectIcon.png'},
+    {name:'Followers',count:'12.8K',image:'/img/FollowersIcon.png'},
+    {name:'Following',count:'1.1K', image:'/img/FollowingIcon.png'}
 ]
 
 export const tasks=[
