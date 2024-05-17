@@ -5,7 +5,7 @@ import {
   faFacebookF,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import Image from "../assets/img/Image.png";
+import Image from "/img/Image.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const ProfileViewer = () => {
   return (
