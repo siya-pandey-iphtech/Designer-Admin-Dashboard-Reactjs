@@ -5,12 +5,12 @@ import TaskList from "./TaskList";
 const TaskBoard = () => {
     const [selectedTab, setSelectedTab] = useState('Today');
   return (
-    <div className=" z-10 shadow-lg bg-white  m-1 mt-4 flex flex-col p-5  min-w-96 ">
+    <div className=" ml-5 z-10 shadow-lg bg-white  m-1 mt-4 flex flex-col p-5  min-w-96 ">
     <h1 className="text-gray-400 mb-2">Tasks</h1>
       {/* Tabs  */}
       <div className="flex  text-xs p-3 pb-0   border-b border-gray-300">
         <div 
-          className={`mr-4   p-2 pt-0 cursor-pointer ${selectedTab === 'Today' ? 'border-b-2 border-pink-500' : ''}`}
+          className={` -ml-3 mr-4   p-2 pt-0 cursor-pointer ${selectedTab === 'Today' ? 'border-b-2 border-pink-500' : ''}`}
           onClick={() => setSelectedTab('Today')}
         >
           Today
@@ -33,10 +33,10 @@ const TaskBoard = () => {
           <TaskList/>
         </div>
         <div className={`  ${selectedTab !== "This week" ? "hidden" : ""}`}>
-          Private Tab
+          This week Tab
         </div>
         <div className={`  ${selectedTab !== "This month" ? "hidden" : ""}`}>
-          Social Tab
+          This Month Tab
         </div>
       </div>
     </div>

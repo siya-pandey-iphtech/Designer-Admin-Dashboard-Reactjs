@@ -7,13 +7,18 @@ export default {
   ],  theme: {
     extend: {
       width: {
-        '120': '30rem', // Add more widths as needed
-        // ...
+        '120': '30rem', 
        '125':'35rem',
         '130':'40rem'
       },
+      height:{
+'50':'12.5rem'
+      },
       fontFamily: {
         'sans': ['Inter', 'sans-serif'],
+      },
+      fontSize: {
+        '3xs': '0.5rem', // Add your desired size
       },
     },
   },

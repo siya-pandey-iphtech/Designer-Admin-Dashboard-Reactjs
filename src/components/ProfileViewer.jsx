@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const ProfileViewer = () => {
   return (
     <div>
-      <div className="   z-10 shadow-lg bg-white w-125 m-1 mt-4 flex justify-around items-center py-5 px-7  ">
+      <div className="   z-10 shadow-lg bg-white w-120 m-1 mt-4 flex justify-around items-center py-5 px-7  ">
         {/* Profile Image  */}
         <div className="flex flex-col justify-center items-center w-1/3 ">
           <img className="w-full" src={Image}></img>
