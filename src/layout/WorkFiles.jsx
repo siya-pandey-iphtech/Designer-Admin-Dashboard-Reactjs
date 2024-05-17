@@ -1,11 +1,11 @@
 import React from "react";
 import { filesData } from "../data";
-import { uiux } from "/img/Background.png";
-import {FolderPink} from "/img/Folder Pink.png";
-import {EyePink} from "/img/Eye Pink.png"
-import {MobileFolder} from "/img/MobileFolder.png";
-import {MobileIcon } from "/img/MobileIcon.png"
-import {illustration} from "/img/IllustrationFolder.png";
+import  uiux  from "/img/Background.png";
+import FolderPink  from "/img/Folder Pink.png";
+import  EyePink from "/img/EyePink.png"
+import  MobileFolder  from "/img/MobileFolder.png";
+import  MobileIcon  from "/img/MobileIcon.png"
+import  illustration  from "/img/IllustrationFolder.png";
 const WorkFiles = () => {
   return (
     <div className="grid grid-flow-col ">
@@ -14,11 +14,11 @@ const WorkFiles = () => {
         <img className="absolute" src={uiux}></img>
         <img
           className="absolute translate-x-1 translate-y-1"
-          src="/img/Image (2).png"
+          src="/img/Image(2).png"
         ></img>
         <img
           className="absolute  translate-x-14 translate-y-3"
-          src="/img/Image (3).png"
+          src="/img/Image(3).png"
         ></img>
         <p className="absolute text-xs text-blue-600 transform translate-y-9 px-5 ">
           UI/UX
