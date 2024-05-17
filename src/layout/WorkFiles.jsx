@@ -7,9 +7,9 @@ const WorkFiles = () => {
       <div className="relative mt-2">
        
 
-        <img  className="absolute" src="../../src/assets/img/Background.png"></img>
-        <img className="absolute translate-x-1 translate-y-1" src="../../src/assets/img/Image (2).png"></img>
-        <img className="absolute  translate-x-14 translate-y-3" src="../../src/assets/img/Image (3).png"></img>
+        <img  className="absolute" src="/img/Background.png"></img>
+        <img className="absolute translate-x-1 translate-y-1" src="/img/Image (2).png"></img>
+        <img className="absolute  translate-x-14 translate-y-3" src="/img/Image (3).png"></img>
         <p className="absolute text-xs text-blue-600 transform translate-y-9 px-5 ">UI/UX</p>
         <p className="absolute text-2xs text-blue-600 transform translate-y-12 px-5 ">175</p>
       </div>
