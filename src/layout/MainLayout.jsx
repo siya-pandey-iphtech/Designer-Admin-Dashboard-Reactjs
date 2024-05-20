@@ -12,6 +12,8 @@ import Files from "./Files";
 import MediaCount from "../components/MediaCount";
 import ProjectAnalytics from "../components/ProjectAnalytics";
 import TaskBoard from "../components/TaskBoard";
+import MyCalender from "../components/Calender";
+import Views from "../components/Views";
 
 const MainLayout = () => {
   return (
@@ -90,6 +92,10 @@ const MainLayout = () => {
             </div>
             <div className="flex w-full">
               <TaskBoard />
+              <div className="flex flex-col">
+                <MyCalender/>
+                <Views/>
+              </div>
             </div>
           </div>
         </main>
