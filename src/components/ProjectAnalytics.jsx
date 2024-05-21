@@ -57,7 +57,7 @@ export const ProjectAnalytics = () => {
      <p className="absolute translate-y-7">{total}</p>
      </div>
      {/* Legends  */}
-      <div className="flex text-2xs flex-wrap mt-4 justify-between gap-y-1">
+      <div className="flex text-2xs flex-wrap mt-4 justify-between gap-y-1 px-5">
         {data.labels.map((label, index) => (
           <div key={index} className="flex items-center">
             <div

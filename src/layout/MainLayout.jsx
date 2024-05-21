@@ -14,6 +14,7 @@ import ProjectAnalytics from "../components/ProjectAnalytics";
 import TaskBoard from "../components/TaskBoard";
 import MyCalender from "../components/Calender";
 import Views from "../components/Views";
+import StarterKits from "../components/StarterKits";
 
 const MainLayout = () => {
   return (
@@ -85,10 +86,13 @@ const MainLayout = () => {
             <ProfileViewer />
             <Files />
           </div>
-          <div className="flex w-full">
-            <div className="flex w-120">
+          <div className="flex  w-120">
+            <div>
+            <div className="flex ">
               <MediaCount />
               <ProjectAnalytics />
+            </div>
+            <StarterKits/>
             </div>
             <div className="flex w-full">
               <TaskBoard />

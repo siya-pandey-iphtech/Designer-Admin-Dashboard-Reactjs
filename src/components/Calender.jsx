@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
 import "../styles/Calender.css";
+import NewCalendar from "./NewCalendar";
  const Calender = () => {
   const [date, changeDate] = useState(new Date());
-  const formatDay = (date) => {
-    return date.toLocaleDateString('en-US', { weekday: 'short' });
+  const customWeekdayLabel = ({ date }) => {
+    const weekday = date.toLocaleDateString('en-US', { weekday: 'short' });
+    return weekday.charAt(0);
   };
   function changeValue(val) {
     changeDate(val);
@@ -21,10 +23,12 @@ import "../styles/Calender.css";
         defaultValue={date} 
         value={date} 
         locale="en-US" 
-        // formatDay={formatDay}
+        formatShortWeekday={(locale,date)=>customWeekdayLabel({date})}
+     
 
          className=" .react-calender w-full text-sm  overflow-hidden "
       />
+      {/* <NewCalendar/> */}
     </div>
   );
 };

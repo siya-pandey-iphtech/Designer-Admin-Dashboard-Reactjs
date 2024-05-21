@@ -1,8 +1,17 @@
-.react-calendar {
+/* .react-calendar {
     width:12rem;
     max-width: 100%;
     background: white;    
     line-height: 1.125em;
+  } */
+  .react-calendar {
+    width: 100%;
+    background-color: #fff;
+   
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 5rem;
+    /* line-height: 1.125em; */
+    border: none;
   }
   
   .react-calendar--doubleView {
@@ -44,9 +53,17 @@
     margin-bottom: 1em;
   }
   
+  /* .react-calendar__navigation button {
+    min-width: 44px;
+    background: none;
+  } */
   .react-calendar__navigation button {
     min-width: 44px;
     background: none;
+    border: none;
+    font-size: 16px;
+    margin: 0 3px;
+    cursor: pointer;
   }
   
   .react-calendar__navigation button:disabled {
@@ -56,18 +73,39 @@
   .react-calendar__navigation button:enabled:hover,
   .react-calendar__navigation button:enabled:focus {
     background-color: #e6e6e6;
+    border-radius: 50%;
   }
   
-  .react-calendar__month-view__weekdays {
+  /* .react-calendar__month-view__weekdays {
     text-align: center;
     text-transform: uppercase;
     font: inherit;
     font-size: 0.75em;
     font-weight: bold;
-  }
+  } */
   
+  /* Weekday names */
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10px;
+  color: #333;
+
+  
+}
+
+/* Weekday abbreviation */
+.react-calendar__month-view__weekdays__weekday {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 0;
+}
+
+
   .react-calendar__month-view__weekdays__weekday {
-    padding: 0.1em;
+    padding: 0em;
   }
   
   .react-calendar__month-view__weekNumbers .react-calendar__tile {
@@ -80,7 +118,7 @@
   }
   
   .react-calendar__month-view__days__day--weekend {
-    color: #d10000;
+    /* color: #d10000; */
   }
   
   .react-calendar__month-view__days__day--neighboringMonth,
@@ -95,7 +133,7 @@
     padding: 2em 0.5em;
   }
   
-  .react-calendar__tile {
+  /* .react-calendar__tile {
    
     height:4em;
     padding: 0;
@@ -105,8 +143,22 @@
     font: inherit;
     font-size: 0.833em;
    
-  }
+  } */
   
+/* Calendar days */
+.react-calendar__tile {
+  max-width: 100%;
+  padding: 0px 0px;
+  background: none;
+  text-align: center;
+  line-height: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+
+}
+
   .react-calendar__tile:disabled {
     background-color: #f0f0f0;
     color: #ababab;
@@ -116,18 +168,30 @@
   .react-calendar__decade-view__years__year--neighboringDecade:disabled,
   .react-calendar__century-view__decades__decade--neighboringCentury:disabled {
     color: #cdcdcd;
+  
   }
   
-  .react-calendar__tile:enabled:hover,
+  /* .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus {
     background-color: #4657f3;
-  }
+  } */
   
-  .react-calendar__tile--now {
+  /* Calendar days hover effect */
+.react-calendar__tile:enabled:hover {
+  background-color: #e6e6e6;
+  border-radius: 50%;
+}
+  /* .react-calendar__tile--now {
     background: #4657f3;
     
-  }
-  
+  } */
+  /* Selected day */
+.react-calendar__tile--now {
+ padding: 0;
+  background: #006edc;
+  color: white;
+  border-radius: 50%;
+} 
   .react-calendar__tile--now:enabled:hover,
   .react-calendar__tile--now:enabled:focus {
     background: #4657f3;
@@ -142,11 +206,17 @@
     background: #a9d4ff;
   }
   
-  .react-calendar__tile--active {
+  /* .react-calendar__tile--active {
     background: #800ede;
     color: white;
     border-radius: 50%;
 
+  } */
+
+  .react-calendar__tile--active {
+    background: #1087ff;
+    color: white;
+    border-radius:50%;
   }
   
   .react-calendar__tile--active:enabled:hover,
@@ -157,4 +227,17 @@
   .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;
   }
-  
+  .react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd {
+  background: #006edc;
+  color: white;
+  border-radius: 50%;
+}
+.react-calendar__tile--range {
+  background: #e6f7ff;
+  color: #006edc;
+}
+.react-calendar__month-view__days__day {
+  margin: 0; /* remove margin */
+  padding: 0; /* reduce padding */
+}

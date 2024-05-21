@@ -19,7 +19,7 @@ const Views = () => {
               className="text-green-400 text-xs ml-1"
             />
           </div>
-          <p className="text-xs ">7.2%</p>
+          <p className="text-xs text-green-400">7.2%</p>
           <button className=" text-xs border-2 rounded-lg  border-purple-400 w-fit px-3 py-2  text-purple-600 font-semibold mt-2">
             See More
           </button>
