@@ -1,50 +1,149 @@
-import React, { useState } from "react";
-import WorkFiles from "./WorkFiles";
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFolder } from "@fortawesome/free-solid-svg-icons";
+import { Modal } from "flowbite-react";
+const colors = ["#C7D2FE", "#FEF3C7", "#FBCFE8", "#FEF08A", "#BBF7D0"];
 
-const Files = () => {
-  const [selectedTab, setSelectedTab] = useState("Work");
+const Files = ({ fileData, setFileData }) => {
+  const [selectedTab, setSelectedTab] = useState('Work');
+  const [open, setOpen] = useState(false);
+  const [tempFileData,setTempFileData]=useState(fileData);
+  console.log("Files:", fileData);
+  useEffect(() => {
+    setTempFileData(fileData);
+  }, [fileData]);
+  
+  const openModal = () => {
+    setTempFileData(fileData);
+    setOpen(true);
+  };
+  const closeModal = () => {
+    
+    setOpen(false);
+  };
 
+
+  const handleFileCountChange = (e, fileIndex, folderIndex) => {
+   const newTempFileData=[...tempFileData];
+   newTempFileData[fileIndex].folders[folderIndex].fileCount=e.target.value;
+   setTempFileData(newTempFileData);
+  };
+
+
+  const saveChanges=()=>{
+    setFileData(tempFileData);
+    closeModal();
+  };
   return (
     <div className=" z-10 shadow-lg bg-white w-full h-50 m-1 mt-4 flex flex-col p-5 ml-4 ">
       <h1 className="text-gray-500">Files</h1>
       {/* Tabs  */}
-      <div className="flex  text-xs p-3 pb-0   border-b border-gray-300">
-        <div
-          className={`-ml-3 mr-4   p-2 pt-0 cursor-pointer px-3 ${
-            selectedTab === "Work" ? "border-b-2 border-pink-500" : ""
-          }`}
-          onClick={() => setSelectedTab("Work")}
-        >
-          Work
+      <div className="flex justify-between items-center">
+        <div className="flex  text-xs p-3 pb-0   border-b border-gray-300">
+          {fileData.map((file, index) => (
+            <div
+              key={index}
+              className={`-ml-3 mr-4   p-2 pt-0 cursor-pointer px-3 ${
+                selectedTab === file.name ? "border-b-2 border-pink-500" : ""
+              }`}
+              onClick={() => setSelectedTab(file.name)}
+            >
+              {file.name}
+            </div>
+          ))}
         </div>
-        <div
-          className={`mr-4 pl-0 p-2 pt-0 cursor-pointer px-3 ${
-            selectedTab === "Private" ? "border-b-2 border-pink-500" : ""
-          }`}
-          onClick={() => setSelectedTab("Private")}
-        >
-          Private
-        </div>
-        <div
-          className={`pl-0 p-2 pt-0 cursor-pointer px-3 ${
-            selectedTab === "Social" ? "border-b-2 border-pink-500" : ""
-          }`}
-          onClick={() => setSelectedTab("Social")}
-        >
-          Social
+        <div>
+          <button
+            className=" border shadow-sm border-blue-400 text-xs text-blue-400 rounded-sm px-2 py-1 mt-1"
+            onClick={openModal}
+          >
+            DETAILS
+          </button>
+          <Modal
+            dismissible
+            show={open}
+            onClose={closeModal}
+            className="bg-transparent "
+          >
+            <div className=" shadow-2xl z-10  bg-purple-50">
+              <Modal.Header className="bg-white">Update Files </Modal.Header>
+
+              <Modal.Body>
+                <div className="h-96 overflow-auto bg-white shadow-lg">
+                  {tempFileData.map((file,fileIndex) => (
+                    <div key={file.name} className=" border p-5  gap-2 grid">
+                      <p
+                        className="font-bold text-xl text-gray-500 "
+                        key={file.name}
+                      >
+                        {file.name}
+                      </p>
+                      {file.folders.map((folder, folderIndex) => (
+                        <div key={folder.name} className="grid grid-cols-2">
+                          <div className="flex items-center gap-2 ">
+                            <FontAwesomeIcon
+                              icon={faFolder}
+                              style={{ color: colors[folderIndex % colors.length] }}
+                              size=""
+                            />
+                            <p >{folder.name}</p>
+                          </div>
+                          <input
+                            className="border-2 p-2"
+                            style={{
+                              borderColor: colors[folderIndex % colors.length],
+                            }}
+                            name="fileCount"
+                            value={folder.fileCount}
+                            type="number"
+                            onChange={(e)=>
+                            handleFileCountChange(e,fileIndex,folderIndex)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                  <div className="flex justify-end">
+                    <button className=" border shadow-sm border-blue-400 text-xl text-blue-400 rounded-sm px-2 py-1 m-5"
+                    
+                    onClick={saveChanges}>
+                      SAVE
+                    </button>
+                  </div>
+                </div>
+              </Modal.Body>
+            </div>{" "}
+          </Modal>
         </div>
       </div>
-      {/* Work tab */}
+
       <div className="transition-all duration-2000 ease-in-out">
-        <div className={`  ${selectedTab !== "Work" ? "hidden" : ""}`}>
-          <WorkFiles />
-        </div>
-        <div className={`  ${selectedTab !== "Private" ? "hidden" : ""}`}>
-          Private Tab
-        </div>
-        <div className={`  ${selectedTab !== "Social" ? "hidden" : ""}`}>
-          Social Tab
-        </div>
+        {fileData.map((file, index) => (
+          <div
+            key={index}
+            className={`flex ${selectedTab !== file.name ? "hidden" : ""}`}
+          >
+            {file.folders.map((folder, index) => (
+              <div
+                key={index}
+                className="mr-4 hover:scale-105 transition-transform duration-200 relative"
+              >
+                <FontAwesomeIcon
+                  icon={faFolder}
+                  style={{ color: colors[index % colors.length] }}
+                  size="5x"
+                />
+                <div
+                  className="absolute inset-0 flex flex-col items-start text-2xs ml-2 mt-6 text-white justify-center"
+                  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.9)" }}
+                >
+                  <h3>{folder.name}</h3>
+                  <p>{folder.fileCount}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

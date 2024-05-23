@@ -1,0 +1,77 @@
+[
+    {
+      "name": "Work",
+      "folders": [
+        {
+          "name": "UI/UX",
+          "fileCount": 175
+        },
+        {
+          "name": "Design",
+          "fileCount": 154
+        },
+        {
+          "name": "Mobile",
+          "fileCount": 98
+        },
+        {
+          "name": "Illustration",
+          "fileCount": 154
+        },
+        {
+          "name": "Art",
+          "fileCount": 154
+        }
+      ]
+    },
+    {
+      "name": "Private",
+      "folders": [
+        {
+          "name": "UI/UX",
+          "fileCount": 200
+        },
+        {
+          "name": "Design",
+          "fileCount": 180
+        },
+        {
+          "name": "Mobile",
+          "fileCount": 198
+        },
+        {
+          "name": "Illustration",
+          "fileCount": 150
+        },
+        {
+          "name": "Art",
+          "fileCount": 153
+        }
+      ]
+    },
+    {
+      "name": "Social",
+      "folders": [
+        {
+          "name": "UI/UX",
+          "fileCount": 222
+        },
+        {
+          "name": "Design",
+          "fileCount": 210
+        },
+        {
+          "name": "Mobile",
+          "fileCount": 908
+        },
+        {
+          "name": "Illustration",
+          "fileCount": 454
+        },
+        {
+          "name": "Art",
+          "fileCount": 158
+        }
+      ]
+    }
+  ]

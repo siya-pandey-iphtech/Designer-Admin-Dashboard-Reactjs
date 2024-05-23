@@ -13,7 +13,7 @@ import NewCalendar from "./NewCalendar";
   }
 
   return (
-    <div className=" mr-5 z-10 h-70 shadow-lg bg-white w-96 m-1 mt-4 flex flex-col p-5 text-sm ">
+    <div className=" mr-5 z-10 h-70 shadow-lg bg-white w-64 m-1 mt-4 flex flex-col p-6 text-sm ">
     
 
     

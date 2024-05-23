@@ -15,8 +15,10 @@ import TaskBoard from "../components/TaskBoard";
 import MyCalender from "../components/Calender";
 import Views from "../components/Views";
 import StarterKits from "../components/StarterKits";
-
+import { useState } from "react";
+import files from "../files.json"
 const MainLayout = () => {
+  const [fileData,setFileData]=useState(files)
   return (
     // Main App
     <div className="flex flex-col h-screen">
@@ -83,8 +85,8 @@ const MainLayout = () => {
 
           {/* Profile Viewer  */}
           <div className="flex">
-            <ProfileViewer />
-            <Files />
+            <ProfileViewer fileData={fileData} setFileData={setFileData}/>
+            <Files fileData={fileData} setFileData={setFileData} />
           </div>
           <div className="flex  w-120">
             <div>

@@ -6,6 +6,7 @@ import EyePink from "/img/EyePink.png";
 import MobileFolder from "/img/MobileFolder.png";
 import MobileIcon from "/img/MobileIcon.png";
 import illustration from "/img/IllustrationFolder.png";
+import art from "/img/ArtFolder.png";
 const WorkFiles = () => {
   return (
     <div className="grid grid-flow-col gap-6  mt-2 text-white  flex-shrink-0 w-120">
@@ -55,6 +56,16 @@ const WorkFiles = () => {
         <img className="absolute" src={illustration} />
         <p className="absolute text-2xs  transform translate-y-7 px-2  ">
           Illustration
+        </p>
+        <p className="absolute text-3xs  transform translate-y-10 px-2 py-1">
+          154 files
+        </p>
+      </div>
+      {/* Art Folder */}
+      <div className="relative mt-2 ">
+        <img className="absolute" src={illustration} />
+        <p className="absolute text-2xs  transform translate-y-7 px-2  ">
+   Art
         </p>
         <p className="absolute text-3xs  transform translate-y-10 px-2 py-1">
           154 files
