@@ -21,7 +21,7 @@ const MainLayout = () => {
   const [fileData,setFileData]=useState(files)
   return (
     // Main App
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen ">
       {/* Header */}
       <header className="h-12 bg-blue-500 shadow-lg z-50 text-white py-3 px-10 flex  justify-between ">
         <div className="flex ">

@@ -3,6 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolder } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "flowbite-react";
 const colors = ["#C7D2FE", "#FEF3C7", "#FBCFE8", "#FEF08A", "#BBF7D0"];
+const colorClasses = [
+  " text-blue-500",
+  " text-amber-400",
+  "text-pink-400",
+  " text-yellow-400",
+  " text-green-600",
+
+];
 
 const Files = ({ fileData, setFileData }) => {
   const [selectedTab, setSelectedTab] = useState('Work');
@@ -25,7 +33,8 @@ const Files = ({ fileData, setFileData }) => {
 
   const handleFileCountChange = (e, fileIndex, folderIndex) => {
    const newTempFileData=[...tempFileData];
-   newTempFileData[fileIndex].folders[folderIndex].fileCount=e.target.value;
+   const fileIndexInOriginal=newTempFileData.findIndex(file=>file.name===selectedTab);
+   newTempFileData[fileIndexInOriginal].folders[folderIndex].fileCount = Number(e.target.value) ;
    setTempFileData(newTempFileData);
   };
 
@@ -35,29 +44,16 @@ const Files = ({ fileData, setFileData }) => {
     closeModal();
   };
   return (
-    <div className=" z-10 shadow-lg bg-white w-full h-50 m-1 mt-4 flex flex-col p-5 ml-4 ">
-      <h1 className="text-gray-500">Files</h1>
-      {/* Tabs  */}
-      <div className="flex justify-between items-center">
-        <div className="flex  text-xs p-3 pb-0   border-b border-gray-300">
-          {fileData.map((file, index) => (
-            <div
-              key={index}
-              className={`-ml-3 mr-4   p-2 pt-0 cursor-pointer px-3 ${
-                selectedTab === file.name ? "border-b-2 border-pink-500" : ""
-              }`}
-              onClick={() => setSelectedTab(file.name)}
-            >
-              {file.name}
-            </div>
-          ))}
-        </div>
-        <div>
+    <div className=" z-10 shadow-lg bg-white w-fit h-50 m-1 mt-4 flex flex-col p-5 ml-4 ">
+      <div className="flex items-center ">
+      <h1 className="text-gray-500 mr-80">Files</h1>
+
+      <div>
           <button
             className=" border shadow-sm border-blue-400 text-xs text-blue-400 rounded-sm px-2 py-1 mt-1"
             onClick={openModal}
           >
-            DETAILS
+            UPDATE
           </button>
           <Modal
             dismissible
@@ -70,8 +66,12 @@ const Files = ({ fileData, setFileData }) => {
 
               <Modal.Body>
                 <div className="h-96 overflow-auto bg-white shadow-lg">
-                  {tempFileData.map((file,fileIndex) => (
-                    <div key={file.name} className=" border p-5  gap-2 grid">
+                  {tempFileData
+                  .filter(file=>file.name===selectedTab)
+                  
+                  
+                  .map((file,fileIndex) => (
+                    <div key={file.name} className="  p-5  gap-2 grid">
                       <p
                         className="font-bold text-xl text-gray-500 "
                         key={file.name}
@@ -104,7 +104,7 @@ const Files = ({ fileData, setFileData }) => {
                     </div>
                   ))}
                   <div className="flex justify-end">
-                    <button className=" border shadow-sm border-blue-400 text-xl text-blue-400 rounded-sm px-2 py-1 m-5"
+                    <button className=" border shadow-sm border-blue-400 text-xl text-blue-400 rounded-sm px-2 py-1 my-2 mx-5" 
                     
                     onClick={saveChanges}>
                       SAVE
@@ -115,33 +115,53 @@ const Files = ({ fileData, setFileData }) => {
             </div>{" "}
           </Modal>
         </div>
+        </div>
+      {/* Tabs  */}
+      <div className="flex justify-between items-center">
+        <div className="flex  text-xs p-3 pb-0   border-b border-gray-300">
+          {fileData.map((file, index) => (
+            <div
+              key={index}
+              className={`-ml-3 mr-4   p-2 pt-0 cursor-pointer px-3 ${
+                selectedTab === file.name ? "border-b-2 border-pink-500" : ""
+              }`}
+              onClick={() => setSelectedTab(file.name)}
+            >
+              {file.name}
+            </div>
+          ))}
+        </div>
+        
       </div>
-
+{/* Folders */}
       <div className="transition-all duration-2000 ease-in-out">
-        {fileData.map((file, index) => (
+        {fileData.map((file, fileIndex) => (
           <div
-            key={index}
+            key={fileIndex}
             className={`flex ${selectedTab !== file.name ? "hidden" : ""}`}
           >
-            {file.folders.map((folder, index) => (
-              <div
-                key={index}
+            {file.folders.map((folder, folderIndex) => {
+              const colorClassIndex=folderIndex %  colorClasses.length;
+              const colorClass=colorClasses[colorClassIndex];
+             return( <div
+                key={folderIndex}
                 className="mr-4 hover:scale-105 transition-transform duration-200 relative"
               >
                 <FontAwesomeIcon
                   icon={faFolder}
-                  style={{ color: colors[index % colors.length] }}
+                  
+                 style={{ color: colors[folderIndex % colors.length] }}
                   size="5x"
                 />
                 <div
-                  className="absolute inset-0 flex flex-col items-start text-2xs ml-2 mt-6 text-white justify-center"
-                  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.9)" }}
+                  className={`absolute inset-0 flex flex-col items-start text-2xs ml-2 mt-6  justify-center ${colorClass}`}
+                 
                 >
                   <h3>{folder.name}</h3>
                   <p>{folder.fileCount}</p>
                 </div>
-              </div>
-            ))}
+              </div>)
+            })}
           </div>
         ))}
       </div>

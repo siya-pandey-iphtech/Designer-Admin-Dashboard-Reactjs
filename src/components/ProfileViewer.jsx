@@ -41,7 +41,7 @@ const ProfileViewer = ({ fileData }) => {
   useEffect(() => {
     calculateFilesCount();
   }, [fileData]);
-
+console.log("fileCountsby type",fileCountsByType)
   return (
     <div>
       <div className="z-10 shadow-lg bg-white w-120 m-1 mt-4 flex justify-around items-center py-5 px-7">
@@ -72,8 +72,11 @@ const ProfileViewer = ({ fileData }) => {
                 key={index}
                 className={`${colorClasses[index % colorClasses.length]} p-1 rounded-sm`}
                 data-tooltip-id="file-tooltip"
-                data-tooltip-content={`Total Files: ${fileCountsByType[key]}`}
+                data-tooltip-content={fileCountsByType[key].toString()
+                }
+                
               >
+              {console.log(`Total Files: ${fileCountsByType[key].toString()}`)}
                 {key}
               </span>
             ))}
