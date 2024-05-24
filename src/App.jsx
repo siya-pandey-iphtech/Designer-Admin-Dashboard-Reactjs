@@ -6,7 +6,7 @@ function App() {
 
 
   return (
-   <div className='w-fit'>
+   <div className=''>
     <MainLayout/>
    </div>
   )
