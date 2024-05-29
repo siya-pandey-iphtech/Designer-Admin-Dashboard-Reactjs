@@ -79,8 +79,8 @@ const Files = ({ fileData, setFileData }) => {
                         {file.name}
                       </p>
                       {file.folders.map((folder, folderIndex) => (
-                        <div key={folder.name} className="grid grid-cols-2">
-                          <div className="flex items-center gap-2 ">
+                        <div key={folder.name} className="  grid grid-cols-2 items-center pl-20 ">
+                          <div className=" flex items-center gap-2 ">
                             <FontAwesomeIcon
                               icon={faFolder}
                               style={{ color: colors[folderIndex % colors.length] }}
@@ -89,10 +89,8 @@ const Files = ({ fileData, setFileData }) => {
                             <p >{folder.name}</p>
                           </div>
                           <input
-                            className="border-2 p-2"
-                            style={{
-                              borderColor: colors[folderIndex % colors.length],
-                            }}
+                            className="border p-2 w-20"
+                            
                             name="fileCount"
                             value={folder.fileCount}
                             type="number"
@@ -104,7 +102,7 @@ const Files = ({ fileData, setFileData }) => {
                     </div>
                   ))}
                   <div className="flex justify-end">
-                    <button className=" border shadow-sm border-blue-400 text-xl text-blue-400 rounded-sm px-2 py-1 my-2 mx-5" 
+                    <button className=" border shadow-sm border-blue-400 text-xs text-blue-400 rounded-sm px-2 py-1 my-2 mx-5" 
                     
                     onClick={saveChanges}>
                       SAVE

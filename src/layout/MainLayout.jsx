@@ -5,27 +5,42 @@ import {
   faHome,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-
+import { Outlet, NavLink ,useLocation , Link} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ProfileViewer from "../components/ProfileViewer";
-import Files from "./Files";
-import MediaCount from "../components/MediaCount";
-import ProjectAnalytics from "../components/ProjectAnalytics";
-import TaskBoard from "../components/TaskBoard";
-import MyCalender from "../components/Calender";
-import Views from "../components/Views";
-import StarterKits from "../components/StarterKits";
-import { useState } from "react";
-import files from "../files.json"
+import { Fragment } from "react";
+import { useNavigate } from "react-router-dom";
+
+
+
+
+const NavItem = ({ icon, text, to,crumb }) => (
+  <NavLink 
+    to={to}
+    className={({ isActive }) =>
+  `flex items-center space-x-6 w-64 px-10 py-2 ${isActive ? "bg-gray-50 text-black" : ""}`
+}
+  >
+    <FontAwesomeIcon
+      icon={icon}
+      className="bg-blue-500 text-white p-1 rounded-full w-3 h-3"
+    />
+    
+    <span>{text}</span>   
+  </NavLink>
+);
+
+
 const MainLayout = () => {
-  const [fileData,setFileData]=useState(files)
+  const location = useLocation();
+  const navigate = useNavigate();
+  const pathnames = location.pathname.split("/").filter((x) => x);
   return (
     // Main App
     <div className="flex flex-col h-screen ">
       {/* Header */}
       <header className="h-12 bg-blue-500 shadow-lg z-50 text-white py-3 px-10 flex  justify-between ">
         <div className="flex ">
-          <button>
+          <button onClick={()=>navigate("/login")}>
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
           <p className="mx-10 text-nowrap">React Material Admin Full</p>
@@ -39,71 +54,54 @@ const MainLayout = () => {
         </div>
       </header>
 
-      <div className="flex flex-grow">
+      <div className="flex flex-grow ">
         {/* Sidebar */}
-        <nav className="w-64 text-gray-400 bg-white shadow-xl z-10  flex border-r-2">
-          <div className=" h-60 w-full px-5 py-3  border-b-2">
-            <ul className="space-y-3 p-4">
-              <li className="flex items-center space-x-6">
-                <FontAwesomeIcon
-                  icon={faUser}
-                  className="bg-blue-500 text-white p-1 rounded-full w-3 h-3"
-                />
-                <span>Profile</span>
-              </li>
-              <li className="flex items-center space-x-6">
-                <FontAwesomeIcon icon={faHome} />
-                <span>Dashboard</span>
-              </li>
-              <li className="relative flex items-center space-x-6">
-                <FontAwesomeIcon icon={faCartShopping} />
-                <span>Ecommerce</span>
-                <span
-                  className="absolute top-0 right-0
-  transform -translate-y-2 bg-green-600 text-white text-xs rounded-full h-4 p-1 flex items-center justify-center"
-                >
-                  NodeJS
-                </span>
-              </li>
-              <li className="flex items-center space-x-6">
-                <FontAwesomeIcon icon={faUser} />
-                <span>User</span>
-                <span className="bg-pink-500 text-white text-xs p-1 rounded-full h-4 flex items-center transform -translate-y-3 -translate-x-12">
-                  New
-                </span>
-              </li>
-              <li className="flex items-center space-x-6">
-                <FontAwesomeIcon icon={faFile} />
-                <span>Documentation</span>
-              </li>
-            </ul>
+        <nav className="  text-gray-400 bg-white shadow-xl z-10  flex border-r-2">
+          <div className="  w-full px-0 py-10  border-b-2">
+          {/* <ul className="space-y-3 p-4  w-74 px-0">
+  <NavItem icon={faUser} text="Profile" to="profile" />
+  <NavItem icon={faHome} text="Dashboard" to="dashboard" />
+  <NavItem icon={faCartShopping} text="Ecommerce" to="ecommerce" />
+  <NavItem icon={faUser} text="User" to="user" />
+  <NavItem icon={faFile} text="Documentation" to="documentation" />
+</ul> */}
+<ul className="flex flex-col justify-between space-y-3 p-4 w-74 px-0  ">
+  <NavItem icon={faUser} text="Profile" to="profile" />
+  <NavItem icon={faHome} text="Dashboard" to="dashboard" />
+  <NavItem icon={faCartShopping} text="Ecommerce" to="ecommerce" />
+  <NavItem icon={faUser} text="User" to="user" />
+  <NavItem icon={faFile} text="Documentation" to="documentation" />
+</ul>
           </div>
         </nav>
         <main className="flex-grow bg-purple-50 p-4">
           {/* BreadCrumbBar */}
-          <div className=" h-10 z-10 shadow-lg bg-white w-full m-1 "></div>
+          <div className=" h-10 z-10 shadow-lg bg-white w-full m-1 flex items-center px-2">
+
+          <nav aria-label="breadcrumb ">
+  <ol className="breadcrumb flex">
+    <li className="breadcrumb-item ">
+      <Link  className="text-gray-500"to="/">App  >  </Link>
+    </li>
+    {pathnames.map((value, index) => {
+      const isLastPage = index === pathnames.length - 1;
+      const to = `/${pathnames.slice(0, index + 1).join("/")}`;
+
+      return (
+        <Fragment key={to} >
+          {!isLastPage && <span>&gt;</span>}
+          <li className={`breadcrumb-item ${isLastPage ? "active" : ""}`} aria-current={isLastPage ? "page" : undefined}>
+            <Link to={to} className=" text-blue-500 ml-2"> {value.charAt(0).toUpperCase() + value.slice(1)}</Link>
+          </li>
+        </Fragment>
+      );
+    })}
+  </ol>
+</nav>
+          </div>
 
           {/* Profile Viewer  */}
-          <div className="flex">
-            <ProfileViewer fileData={fileData} setFileData={setFileData}/>
-            <Files fileData={fileData} setFileData={setFileData} />
-          </div>
-          <div className="flex  w-120">
-            <div>
-            <div className="flex ">
-              <MediaCount />
-              <ProjectAnalytics />
-            </div>
-            <StarterKits/>
-            </div>
-            <div className="flex w-full">
-              <TaskBoard />
-              <div className="flex flex-col">
-                <MyCalender/>
-                <Views/>
-              </div>
-            </div>
-          </div>
+         <Outlet/>
         </main>
       </div>
     </div>

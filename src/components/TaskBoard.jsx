@@ -31,8 +31,10 @@ const TaskBoard = () => {
     setOpen(false);
   };
 
-  const handleChange = (e, key) => {
-    setTempData({ ...tempData, [key]: e.target.value });
+  // const handleChange = (e, key) => {
+  const handleChange = (e, ) => {
+    // setTempData({ ...tempData, [key]: e.target.value });
+     setTempData({ ...tempData, task: e.target.value });
   };
 
   const saveChanges = () => {
@@ -77,17 +79,19 @@ const TaskBoard = () => {
       <div className="transition-all duration-2000 ease-in-out">
         <div className="text-xs text-gray-600">
           {tasks.map((task, index) => (
-            <div className="flex p-2 border-b justify-between" key={task.id}>
-              <p className="w-1/4 text-2xs">{task.time}</p>
-              <div className="flex items-center justify-between w-full">
-                <span
-        className={`mr-2 w-1 h-1 rounded-full ${getColor(task.status)}`}
+            <div className="grid  grid-cols-3  gap-x-0  p-2 border-b w-full " key={task.id}>
+              <p className="w-1/4  text-2xs  ">{task.time}</p>
+              <div className="grid grid-cols-2  items-center w-80
+             -ml-20">
+               <div className="grid grid-cols-2 gap-0 items-center "> <span
+        className={` w-1 h-1 rounded-full  mx-2 ${getColor(task.status)}`}
                  
                 ></span>
-                <p className="w-full text-nowrap">{task.task}</p>
-                <span className={`text-white text-2xs px-1 rounded-full mr-5 text-nowrap ${task.status === 'Completed' ? 'bg-green-500' : task.status === 'In Progress' ? 'bg-yellow-400' : task.status === 'New' ? 'bg-blue-500' : 'bg-pink-400'}`}>{task.status}</span>
+               <p className="  text-nowrap truncate  -ml-12 w-40" title={task.task}>{task.task}</p>
+               </div>
+                <span className={`text-white text-2xs px-1 rounded-full  text-nowrap w-fit ml-10 ${task.status === 'Completed' ? 'bg-green-500' : task.status === 'In Progress' ? 'bg-yellow-400' : task.status === 'New' ? 'bg-blue-500' : 'bg-pink-400'}`}>{task.status}</span>
               </div>
-              <button onClick={() => { openModal(task) }}>
+              <button className="ml-20" onClick={() => { openModal(task) }}>
                 <FontAwesomeIcon icon={faEllipsisVertical} />
               </button>
             </div>
@@ -97,14 +101,21 @@ const TaskBoard = () => {
       <Modal
         show={open}
         onClose={closeModal}
-        className="bg-transparent"
+        className="bg-transparent "
       >
-        <div className="shadow-2xl z-10 bg-purple-50">
+        <div className="shadow-2xl z-10 bg-purple-50 ">
           <ModalHeader className="bg-white">Update Task</ModalHeader>
           <Modal.Body>
-            <div className="h-96 overflow-auto bg-white shadow-lg">
-              <div className="grid p-1">
-                {tempData && Object.entries(tempData).map(([key, value]) => (
+            <div className="h-96 overflow-auto bg-white shadow-lg text-gray-600">
+              <div className="grid p-5">
+              Task : 
+              <textarea
+                value={tempData.task}
+                name="task"
+                 onChange={(e) => handleChange(e)}
+                  className="py-2 px-3 border border-gray-200"
+                  rows="15" />
+                {/* {tempData && Object.entries(tempData).map(([key, value]) => (
                   <div className="grid grid-cols-2 items-center p-5" key={key}>
                     <p className="ml-20">{key.toUpperCase()}</p>
                     {key === 'status' ? (
@@ -120,9 +131,9 @@ const TaskBoard = () => {
                       <input type="text" disabled={key === 'id'} value={value} name={key} onChange={(e) => handleChange(e, key)} className="py-2 px-3 border" />
                     )}
                   </div>
-                ))}
+                ))} */}
                 <div className="flex justify-end">
-                  <button className="border shadow-sm border-blue-400 text-xl text-blue-400 rounded-sm px-2 py-1 my-1 mx-5" onClick={saveChanges}>
+                  <button className="border shadow-sm border-blue-400 text-sm text-blue-400 rounded-sm px-2 py-1 my-1 mx-5" onClick={saveChanges}>
                     SAVE
                   </button>
                 </div>

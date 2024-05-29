@@ -48,7 +48,19 @@ export const ProjectAnalytics = () => {
       },
       tooltip: {
         enabled: true,
+        callbacks: {
+          title: function() {
+            return ''; // return empty string to not display any title
+          },
+          label: function(context) {
+            return context.raw; // return only the data
+          },
+          afterLabel: function() {
+            return ''; // return empty string to not display anything after the label
+          }
+        }
       },
+      
       beforeDraw: (chart) => {
         var width = chart.chart.width,
           height = chart.chart.height,
@@ -121,7 +133,7 @@ const handleUpdateClick=()=>{
           onClose={closeModal}
           className="bg-transparent   flex items-center justify-center"
         >
-          <div className="shadow-2xl z-10 bg-purple-50 w-fit">
+          <div className="shadow-2xl z-10 bg-purple-50 ">
             <Modal.Header className="bg-white">Projects </Modal.Header>
             <Modal.Body>
               <div className="bg-white   shadow-lg  ">
@@ -148,18 +160,15 @@ const handleUpdateClick=()=>{
                         name={key}
                         type="number"
                         onChange={handleValuesChange}
-                        style={{
-                          borderColor:
-                            chartData.datasets[0].backgroundColor[index],
-                        }}
-                        className=" ml-4 py-2 px-3 border"
+                       
+                        className=" ml-4 py-2 px-3 border w-16"
                       />
                     </p>
                   ))}
                   
                 </div>
                 <div className=" flex justify-end w-full col">
-                    <button className=" border shadow-sm border-blue-400 text-lg text-blue-400 rounded-sm px-2 py-1 m-5 mt-1" 
+                    <button className=" border shadow-sm border-blue-400 text-sm text-blue-400 rounded-sm px-2 py-1 m-5 mt-1" 
                     onClick={handleUpdateClick}>
                       UPDATE
                     </button>
