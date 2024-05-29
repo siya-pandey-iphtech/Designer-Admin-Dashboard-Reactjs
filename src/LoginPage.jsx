@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   const onSubmit = (formData) => {
     console.log(formData);
-  navigate("/profile")
+  navigate("/app/profile")
   };
   return (
     <div className="flex items-center justify-center h-screen w-full px-5 sm:px-0">

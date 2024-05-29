@@ -40,7 +40,7 @@ const MainLayout = () => {
       {/* Header */}
       <header className="h-12 bg-blue-500 shadow-lg z-50 text-white py-3 px-10 flex  justify-between ">
         <div className="flex ">
-          <button onClick={()=>navigate("/login")}>
+          <button onClick={()=>navigate("/")}>
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
           <p className="mx-10 text-nowrap">React Material Admin Full</p>
@@ -81,21 +81,23 @@ const MainLayout = () => {
           <nav aria-label="breadcrumb ">
   <ol className="breadcrumb flex">
     <li className="breadcrumb-item ">
-      <Link  className="text-gray-500"to="/">App  >  </Link>
+      <Link  className="text-gray-500"to="/"> </Link>
     </li>
     {pathnames.map((value, index) => {
-      const isLastPage = index === pathnames.length - 1;
-      const to = `/${pathnames.slice(0, index + 1).join("/")}`;
+  const isLastPage = index === pathnames.length - 1;
+  const to = `/${pathnames.slice(0, index + 1).join("/")}`;
 
-      return (
-        <Fragment key={to} >
-          {!isLastPage && <span>&gt;</span>}
-          <li className={`breadcrumb-item ${isLastPage ? "active" : ""}`} aria-current={isLastPage ? "page" : undefined}>
-            <Link to={to} className=" text-blue-500 ml-2"> {value.charAt(0).toUpperCase() + value.slice(1)}</Link>
-          </li>
-        </Fragment>
-      );
-    })}
+  return (
+    <Fragment key={to}>
+      <li className={`breadcrumb-item ${isLastPage ? "active" : ""}`} aria-current={isLastPage ? "page" : undefined}>
+        <Link to={to} className={isLastPage ? "text-blue-500 ml-2" : "ml-2"}>
+          {value.charAt(0).toUpperCase() + value.slice(1)}
+        </Link>
+        {!isLastPage && <span>  &gt;</span>}
+      </li>
+    </Fragment>
+  );
+})}
   </ol>
 </nav>
           </div>
