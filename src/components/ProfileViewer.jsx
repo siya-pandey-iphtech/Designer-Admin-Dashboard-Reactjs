@@ -43,8 +43,8 @@ const ProfileViewer = ({ fileData }) => {
   }, [fileData]);
 console.log("fileCountsby type",fileCountsByType)
   return (
-    <div className="">
-      <div className="z-10 shadow-lg bg-white  m-1 mt-4 flex justify-around items-center py-5 px-7">
+    <div>
+      <div className="z-10 shadow-lg bg-white   flex justify-around items-center py-5 px-7">
         {/* Profile Image */}
         <div className="flex flex-col justify-center items-center w-1/3">
           <img className="w-full" src={Image} alt="Profile" />

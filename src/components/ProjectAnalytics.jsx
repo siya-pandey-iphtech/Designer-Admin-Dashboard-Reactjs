@@ -97,14 +97,16 @@ const handleUpdateClick=()=>{
   closeModal();
 }
   return (
-    <div className=" h-60 z-10 shadow-lg bg-white w-60 m-1 mt-4 flex flex-col p-5 ">
+    <div className=" z-10 shadow-lg bg-white flex flex-col p-5 ">
       <h1 className="  text-gray-400 mb-2">Projects </h1>
       <div className="w-full flex justify-center   ">
         <div className=" w-20 flex justify-center items-center">
           <Doughnut data={chartData} options={options} />
         </div>
-        <p className="absolute translate-y-7">{total}</p>
-      </div>
+        <div className="relative">
+  <p className="absolute translate-y-7 -translate-x-14">{total}</p>
+  {/* Other child elements */}
+</div>      </div>
       {/* Legends  */}
       <div className="flex text-2xs flex-wrap mt-4 justify-between gap-y-1 px-5">
         {chartData.labels.map((label, index) => (

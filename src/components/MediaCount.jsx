@@ -1,7 +1,7 @@
 import { media } from "../data";
 const MediaCount = () => {
   return (
-    <div className=" mr-5 z-10 h-60 shadow-lg bg-white w-60 m-1 mt-4 flex flex-col p-5  ">
+    <div className="  z-10  shadow-lg bg-white flex flex-col p-5  ">
       <h1 className="text-gray-400 mb-2">Media</h1>
      {/* Icons  */}
       <div className="grid grid-cols-2 gap-5 gap-y-7">

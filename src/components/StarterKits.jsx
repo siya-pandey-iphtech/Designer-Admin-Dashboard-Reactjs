@@ -1,6 +1,6 @@
 const StarterKits = () => {
   return (
-    <div className=" mr-5 z-10  shadow-lg bg-white w-full m-1 mt-4 flex flex-col p-5 pt-2 ">
+    <div className="  z-10  shadow-lg bg-white  flex flex-col p-5 pt-2 ">
       <h1 className="">TOP 5 REACT NATIVE STARTER KITS </h1>
       <div className="flex justify-center mt-5">
         <div className="flex  flex-col justify-center items-center  w-full ">

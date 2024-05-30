@@ -13,7 +13,7 @@ import NewCalendar from "./NewCalendar";
   }
 
   return (
-    <div className=" mr-5 z-10 h-70 shadow-lg bg-white w-64 m-1 mt-4 flex flex-col p-6 text-sm ">
+    <div className=" z-10 shadow-lg bg-white p-6 text-sm  ">
     
 
     
@@ -26,7 +26,7 @@ import NewCalendar from "./NewCalendar";
         formatShortWeekday={(locale,date)=>customWeekdayLabel({date})}
      
 
-         className=" .react-calender w-full text-sm  overflow-hidden "
+         className="   text-sm  overflow-hidden "
       />
       {/* <NewCalendar/> */}
     </div>

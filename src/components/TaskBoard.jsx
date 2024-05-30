@@ -58,7 +58,7 @@ const TaskBoard = () => {
     }
   };
   return (
-    <div className="ml-5 z-10 shadow-lg bg-white m-1 mt-4 flex flex-col p-5 min-w-96">
+    <div className=" z-10 shadow-lg bg-white  flex flex-col p-5  h-fit">
       <h1 className="text-gray-400 mb-2">Tasks</h1>
       {/* Tabs */}
       <div className="flex text-xs p-3 pb-0 border-b border-gray-300">
@@ -79,15 +79,15 @@ const TaskBoard = () => {
       <div className="transition-all duration-2000 ease-in-out">
         <div className="text-xs text-gray-600">
           {tasks.map((task, index) => (
-            <div className="grid  grid-cols-3  gap-x-0  p-2 border-b w-full " key={task.id}>
+            <div className="grid  grid-cols-3  gap-x-0  p-2 py-3 border-b w-full " key={task.id}>
               <p className="w-1/4  text-2xs  ">{task.time}</p>
               <div className="grid grid-cols-2  items-center w-80
              -ml-20">
                <div className="grid grid-cols-2 gap-0 items-center "> <span
-        className={` w-1 h-1 rounded-full  mx-2 ${getColor(task.status)}`}
+        className={` w-1 h-1 rounded-full  mx-4 ${getColor(task.status)}`}
                  
                 ></span>
-               <p className="  text-nowrap truncate  -ml-12 w-40" title={task.task}>{task.task}</p>
+               <p className="  text-nowrap truncate  -ml-14 w-40" title={task.task}>{task.task}</p>
                </div>
                 <span className={`text-white text-2xs px-1 rounded-full  text-nowrap w-fit ml-10 ${task.status === 'Completed' ? 'bg-green-500' : task.status === 'In Progress' ? 'bg-yellow-400' : task.status === 'New' ? 'bg-blue-500' : 'bg-pink-400'}`}>{task.status}</span>
               </div>

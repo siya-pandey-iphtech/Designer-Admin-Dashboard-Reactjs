@@ -14,14 +14,14 @@ const NavItem = ({ icon, text, to, crumb }) => (
   <NavLink
     to={to}
     className={({ isActive }) =>
-      `flex items-center space-x-6 w-64 px-10 py-2 ${
+      `flex items-center space-x-6  px-2 py-2 ${
         isActive ? "bg-gray-50 text-black" : ""
       }`
     }
   >
     <FontAwesomeIcon
       icon={icon}
-      className="bg-blue-500 text-white p-1 rounded-full w-3 h-3"
+      className=" p-1 rounded-full w-3 h-3"
     />
 
     <span>{text}</span>
@@ -34,7 +34,7 @@ const MainLayout = () => {
   const pathnames = location.pathname.split("/").filter((x) => x);
   return (
     // Main App
-    <div className="flex flex-col h-screen w-screen overflow-hidden">
+    <div className="flex flex-col h-screen  overflow-hidden">
       {/* Header */}
       <header className="h-12 bg-blue-500 shadow-lg z-50 text-white py-3 px-10 flex  justify-between ">
         <div className="flex ">
@@ -54,16 +54,10 @@ const MainLayout = () => {
 
       <div className="flex flex-grow ">
         {/* Sidebar */}
-        <nav className="  text-gray-400 bg-white shadow-xl z-10  flex border-r-2">
+        <nav className="  text-gray-400 bg-white shadow-xl z-10  flex border-r-2   w-56">
           <div className="  w-full px-0 py-10  border-b-2">
-            {/* <ul className="space-y-3 p-4  w-74 px-0">
-  <NavItem icon={faUser} text="Profile" to="profile" />
-  <NavItem icon={faHome} text="Dashboard" to="dashboard" />
-  <NavItem icon={faCartShopping} text="Ecommerce" to="ecommerce" />
-  <NavItem icon={faUser} text="User" to="user" />
-  <NavItem icon={faFile} text="Documentation" to="documentation" />
-</ul> */}
-            <ul className="flex flex-col justify-between space-y-3 p-4 w-74 px-0  ">
+          
+            <ul className="flex flex-col justify-between space-y-3 p-4  px-0  ">
               <NavItem icon={faUser} text="Profile" to="profile" />
               <NavItem icon={faHome} text="Dashboard" to="dashboard" />
               <NavItem icon={faCartShopping} text="Ecommerce" to="ecommerce" />
@@ -72,14 +66,14 @@ const MainLayout = () => {
             </ul>
           </div>
         </nav>
-        <main className="flex-grow bg-purple-50 p-4 w-fit overflow-auto">
+        <main className="flex-grow bg-blue-50 p-4 w-full overflow-auto ">
           {/* BreadCrumbBar */}
           <div className=" h-10 z-10 shadow-lg bg-white w-full m-1 flex items-center px-2">
             <nav aria-label="breadcrumb ">
               <ol className="breadcrumb flex">
                 <li className="breadcrumb-item ">
                   <Link className="text-gray-500" to="/">
-                    {" "}
+                 
                   </Link>
                 </li>
                 {pathnames.map((value, index) => {
