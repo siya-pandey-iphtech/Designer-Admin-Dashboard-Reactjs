@@ -34,7 +34,7 @@ const TaskBoard = () => {
   // const handleChange = (e, key) => {
   const handleChange = (e, ) => {
     // setTempData({ ...tempData, [key]: e.target.value });
-     setTempData({ ...tempData, task: e.target.value });
+     setTempData({ ...tempData, [e.target.name]: e.target.value });
   };
 
   const saveChanges = () => {
@@ -113,8 +113,16 @@ const TaskBoard = () => {
                 value={tempData.task}
                 name="task"
                  onChange={(e) => handleChange(e)}
-                  className="py-2 px-3 border border-gray-200"
+                  className="py-2 px-3 border border-gray-200 overflow-auto h-60"
                   rows="15" />
+                  Status : 
+                  <select value={tempData.status} name="status" onChange={(e) => handleChange(e)} className="py-2 px-3 border">
+                        <option value="New">New</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancel">Cancel</option>
+                      </select>
+
                 {/* {tempData && Object.entries(tempData).map(([key, value]) => (
                   <div className="grid grid-cols-2 items-center p-5" key={key}>
                     <p className="ml-20">{key.toUpperCase()}</p>

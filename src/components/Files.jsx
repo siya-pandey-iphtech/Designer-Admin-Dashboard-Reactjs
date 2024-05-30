@@ -44,7 +44,7 @@ const Files = ({ fileData, setFileData }) => {
     closeModal();
   };
   return (
-    <div className=" z-10 shadow-lg bg-white w-fit h-50 m-1 mt-4 flex flex-col p-5 ml-4 ">
+    <div className=" z-10 shadow-lg bg-white  h-50 m-1 mt-4 flex flex-col p-5 ml-4 ">
       <div className="flex items-center ">
       <h1 className="text-gray-500 mr-80">Files</h1>
 

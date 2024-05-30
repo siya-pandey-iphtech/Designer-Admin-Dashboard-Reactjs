@@ -26,7 +26,7 @@ const LoginPage = () => {
           }}
         ></div>
         <div className="w-full p-8 lg:w-1/2">
-          <p className="text-xl text-gray-600 text-center">Welcome back!</p>
+          <p className="text-xl text-gray-600 text-center">Login!</p>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mt-4">
               <label
@@ -107,12 +107,12 @@ const LoginPage = () => {
                 )}
               />
 
-              <a
+              {/* <a
                 href="#"
                 className="text-xs text-gray-500 hover:text-gray-900 text-end w-full mt-2"
               >
                 Forget Password?
-              </a>
+              </a> */}
             </div>
             <div className="mt-8">
               <button
@@ -123,7 +123,7 @@ const LoginPage = () => {
               </button>
             </div>
           </form>
-          <div className="mt-4 flex items-center w-full text-center">
+          {/* <div className="mt-4 flex items-center w-full text-center">
             <a
               href="#"
               className="text-xs text-gray-500 capitalize text-center w-full"
@@ -131,7 +131,7 @@ const LoginPage = () => {
               Don&apos;t have any account yet?
               <span className="text-blue-700"> Sign Up</span>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

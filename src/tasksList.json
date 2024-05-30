@@ -1,9 +1,9 @@
 {
     "Today": [
-      {"id": 1, "task": "Call conference with a New", "time": "10:00", "status": "New"},
+      {"id": 1, "task": "Call conference with a New client in Delhi", "time": "10:00", "status": "New"},
       {"id": 2, "task": "Presentation Demo Ecological", "time": "11:30", "status": "In Progress"},
       {"id": 3, "task": "Call with PR Manager", "time": "13:00", "status": "Completed"},
-      {"id": 4, "task": "Interview with a new UI/UX", "time": "14:30", "status": "New"},
+      {"id": 4, "task": "Interview with a new UI/UX designer in Kolkata", "time": "14:30", "status": "New"},
       {"id": 5, "task": "Meeting with Marketing", "time": "16:00", "status": "Cancel"},
       {"id": 6, "task": "Product Design Review", "time": "17:30", "status": "In Progress"},
       {"id": 7, "task": "Sales Presentation", "time": "19:00", "status": "Completed"}
@@ -15,15 +15,15 @@
       {"id": 11, "task": "Project Planning", "time": "1:00", "status": "Completed"},
       {"id": 12, "task": "Marketing Strategy Review", "time": "17:30", "status": "In Progress"},
       {"id": 13, "task": "Budget Meeting", "time": "20:00", "status": "Completed"},
-      {"id": 14, "task": "Code Review", "time": "1:30", "status": "New"}
+      {"id": 14, "task": "Code Review for designX project ", "time": "1:30", "status": "New"}
     ],
     "This month": [
       {"id": 15, "task": "Performance Review", "time": "11:40", "status": "In Progress"},
-      {"id": 16, "task": "Company All-Hands Meeting", "time": "9:00", "status": "New"},
+      {"id": 16, "task": "Company All-Hands Meeting in Dubai ", "time": "9:00", "status": "New"},
       {"id": 17, "task": "Product Launch", "time": "1:30", "status": "New"},
-      {"id": 18, "task": "Board Meeting", "time": "6:00", "status": "Cancel"},
+      {"id": 18, "task": "Board Meeting at Coimbatore", "time": "6:00", "status": "Cancel"},
       {"id": 19, "task": "Training Session", "time": "23:00", "status": "Completed"},
-      {"id": 20, "task": "Recruitment Drive", "time": "7:30", "status": "In Progress"},
+      {"id": 20, "task": "Recruitment Drive at SRMGPC ", "time": "7:30", "status": "In Progress"},
       {"id": 21, "task": "Annual Budget Review", "time": "19:20", "status": "Completed"}
     ]
 }

@@ -7,7 +7,6 @@ import TaskBoard from "./components/TaskBoard";
 import MyCalender from "./components/Calender";
 import Views from "./components/Views";
 import StarterKits from "./components/StarterKits";
-import { Outlet, Link } from "react-router-dom";
 
 import { useState } from "react";
 import files from "./files.json"
