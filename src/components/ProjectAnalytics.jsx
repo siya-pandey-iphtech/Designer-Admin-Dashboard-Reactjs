@@ -14,12 +14,12 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export const ProjectAnalytics = () => {
   console.log("Projects Data from json", projects);
   const [open, setOpen] = useState(false);
-  const [projectData,setProjectData]=useState(projects);
-  const [tempData,setTempData]=useState(projects);
+  const [projectData, setProjectData] = useState(projects);
+  const [tempData, setTempData] = useState(projects);
   const labels = Object.keys(projectData);
   const data = Object.values(projectData);
   const backgroundColor = ["#5172f9", "#ffbf67", "#5ed7af", "#fc6a9b"];
-  console.log("type",typeof(tempData))
+  console.log("type", typeof tempData);
   const openModal = () => {
     setTempData(projectData);
     setOpen(true);
@@ -49,18 +49,18 @@ export const ProjectAnalytics = () => {
       tooltip: {
         enabled: true,
         callbacks: {
-          title: function() {
-            return ''; // return empty string to not display any title
+          title: function () {
+            return ""; // return empty string to not display any title
           },
-          label: function(context) {
+          label: function (context) {
             return context.raw; // return only the data
           },
-          afterLabel: function() {
-            return ''; // return empty string to not display anything after the label
-          }
-        }
+          afterLabel: function () {
+            return ""; // return empty string to not display anything after the label
+          },
+        },
       },
-      
+
       beforeDraw: (chart) => {
         var width = chart.chart.width,
           height = chart.chart.height,
@@ -82,20 +82,20 @@ export const ProjectAnalytics = () => {
     cutout: "70%",
     responsive: true,
   };
-const handleValuesChange=(e)=>{
-try {
-  setTempData({
-    ...tempData,
-  [e.target.name]:Number(e.target.value)||0
-  })
-} catch (error) {
-  console.log("error",error);
-}
-}
-const handleUpdateClick=()=>{
-  setProjectData(tempData);
-  closeModal();
-}
+  const handleValuesChange = (e) => {
+    try {
+      setTempData({
+        ...tempData,
+        [e.target.name]: Number(e.target.value) || 0,
+      });
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+  const handleUpdateClick = () => {
+    setProjectData(tempData);
+    closeModal();
+  };
   return (
     <div className=" z-10 shadow-lg bg-white flex flex-col p-5 ">
       <h1 className="  text-gray-400 mb-2">Projects </h1>
@@ -104,13 +104,15 @@ const handleUpdateClick=()=>{
           <Doughnut data={chartData} options={options} />
         </div>
         <div className="relative">
-  <p className="absolute translate-y-7 -translate-x-14">{total}</p>
-  {/* Other child elements */}
-</div>      </div>
+          <p className="absolute translate-y-7 -translate-x-[3.25rem]">{total}</p>
+          {/* Other child elements */}
+        </div>
+      </div>
       {/* Legends  */}
-      <div className="flex text-2xs flex-wrap mt-4 justify-between gap-y-1 px-5">
+      <div className=" flex justify-center items-center">
+      <div className="flex text-2xs flex-wrap mt-4 justify-between gap-y-1  px-5 w-5/6  ">
         {chartData.labels.map((label, index) => (
-          <div key={index} className="flex items-center">
+          <div key={index} className="flex   items-center">
             <div
               style={{
                 backgroundColor: chartData.datasets[0].backgroundColor[index],
@@ -120,6 +122,7 @@ const handleUpdateClick=()=>{
             <p>{label}</p>
           </div>
         ))}
+      </div>
       </div>
       <div className="flex justify-end">
         <button
@@ -140,8 +143,7 @@ const handleUpdateClick=()=>{
             <Modal.Body>
               <div className="bg-white   shadow-lg  ">
                 <div className="p-5  grid grid-cols-2 gap-2 ">
-                  {
-                    Object.entries(tempData).map(([key, value], index) => (
+                  {Object.entries(tempData).map(([key, value], index) => (
                     <p
                       key={index}
                       className=" items-center p-5  grid  grid-cols-2 "
@@ -162,19 +164,19 @@ const handleUpdateClick=()=>{
                         name={key}
                         type="number"
                         onChange={handleValuesChange}
-                       
                         className=" ml-4 py-2 px-3 border w-16"
                       />
                     </p>
                   ))}
-                  
                 </div>
                 <div className=" flex justify-end w-full col">
-                    <button className=" border shadow-sm border-blue-400 text-sm text-blue-400 rounded-sm px-2 py-1 m-5 mt-1" 
-                    onClick={handleUpdateClick}>
-                      UPDATE
-                    </button>
-                  </div>
+                  <button
+                    className=" border shadow-sm border-blue-400 text-sm text-blue-400 rounded-sm px-2 py-1 m-5 mt-1"
+                    onClick={handleUpdateClick}
+                  >
+                    UPDATE
+                  </button>
+                </div>
               </div>
             </Modal.Body>
           </div>

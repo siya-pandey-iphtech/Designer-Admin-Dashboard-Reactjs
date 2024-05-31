@@ -11,6 +11,25 @@ const colorClasses = [
   " text-green-600",
 
 ];
+const ResponsiveIcon = styled(FontAwesomeIcon)`
+  font-size: 5rem;
+
+  @media (max-width: 1200px) {
+    font-size: 4rem;
+  }
+
+  @media (max-width: 992px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1.5rem;
+  }
+`;
 
 const Files = ({ fileData, setFileData }) => {
   const [selectedTab, setSelectedTab] = useState('Work');
@@ -44,9 +63,9 @@ const Files = ({ fileData, setFileData }) => {
     closeModal();
   };
   return (
-    <div className=" z-10 shadow-lg bg-white  flex flex-col p-5  pt-3">
-      <div className="flex items-center ">
-      <h1 className="text-gray-500 mr-80">Files</h1>
+    <div className=" z-10 shadow-lg bg-white  flex flex-col p-5  pt-3 ">
+      <div className="flex items-center justify-between md:justify-start">
+      <h1 className="text-gray-500 md:mr-80">Files</h1>
 
       <div>
           <button
@@ -116,7 +135,7 @@ const Files = ({ fileData, setFileData }) => {
         </div>
       {/* Tabs  */}
       <div className="flex justify-between items-center">
-        <div className="flex  text-xs p-3 pb-0   border-b border-gray-300 w-full">
+        <div className="flex  text-xs p-3 pb-0   border-b border-gray-300 w-full overflow-x-auto">
           {fileData.map((file, index) => (
             <div
               key={index}
@@ -132,7 +151,7 @@ const Files = ({ fileData, setFileData }) => {
         
       </div>
 {/* Folders */}
-      <div className="   mt-4    transition-all duration-2000 ease-in-out">
+      {/* <div className="   mt-4    transition-all duration-2000 ease-in-out">
         {fileData.map((file, fileIndex) => (
           <div
             key={fileIndex}
@@ -162,7 +181,40 @@ const Files = ({ fileData, setFileData }) => {
             })}
           </div>
         ))}
-      </div>
+      </div> */}
+
+      {/* Folders */}
+<div className="mt-4 transition-all duration-2000 ease-in-out flex flex-wrap">
+  {fileData.map((file, fileIndex) => (
+    <div
+      key={fileIndex}
+      className={`gap-1 flex flex-wrap ${selectedTab !== file.name ? "hidden" : ""}`}
+    >
+      {file.folders.map((folder, folderIndex) => {
+        const colorClassIndex = folderIndex % colorClasses.length;
+        const colorClass = colorClasses[colorClassIndex];
+        return (
+          <div
+            key={folderIndex}
+            className="mr-4 hover:scale-105 transition-transform duration-200 relative "
+          >
+            <FontAwesomeIcon
+              icon={faFolder}
+              style={{ color: colors[folderIndex % colors.length] }}
+              size="5x"
+            />
+            <div
+              className={`absolute inset-0 flex flex-col items-start text-2xs ml-2 mt-6 justify-center ${colorClass}`}
+            >
+              <h3 className="font-bold text-xs">{folder.name}</h3>
+              <p>{folder.fileCount}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  ))}
+</div>
     </div>
   );
 };

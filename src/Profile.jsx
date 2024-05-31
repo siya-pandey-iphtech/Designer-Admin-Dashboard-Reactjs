@@ -84,10 +84,10 @@ const Profile = () => {
 //       </div>
 //     </div>
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-5 overflow-auto">
+<div className="grid grid-cols-1 md:grid-cols-2  gap-5 overflow-auto">
   {/* Left pane */}
   <div className="grid gap-5">
-    <div className="m-1 mt-4">
+    <div className="m-1 mt-4 ">
       <ProfileViewer fileData={fileData} setFileData={setFileData} />
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -103,8 +103,8 @@ const Profile = () => {
     </div>
   </div>
   {/* Right Pane  */}
-  <div className="grid gap-5">
-    <div className="grid mt-4 h-fit">
+  <div className="grid gap-5 ">
+    <div className="grid mt-4 h-1/2">
       <Files fileData={fileData} setFileData={setFileData} />
     </div>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 -mt-[6rem]">
