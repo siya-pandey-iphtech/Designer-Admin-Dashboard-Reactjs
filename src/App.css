@@ -1,0 +1,30 @@
+.icon {
+    font-size: 5rem;
+  }
+  
+  @media (max-width: 1200px) {
+    .icon {
+      font-size: 1rem;
+    }
+  } 
+ 
+
+
+  
+   @media (max-width: 992px) {
+    .icon {
+      font-size: 4rem;
+    }
+  } 
+/*   
+    @media (max-width: 768px) {
+    .icon {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .icon {
+      font-size: 1.5rem;
+    }
+  }   */

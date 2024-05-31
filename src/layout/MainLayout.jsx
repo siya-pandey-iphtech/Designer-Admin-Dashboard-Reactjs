@@ -1,13 +1,15 @@
 import {
   faArrowLeft,
+  faBars,
   faCartShopping,
   faFile,
   faHome,
+  faTimes,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Outlet, NavLink, useLocation, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const NavItem = ({ icon, text, to, crumb }) => (
@@ -29,15 +31,20 @@ const NavItem = ({ icon, text, to, crumb }) => (
 );
 
 const MainLayout = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
   const pathnames = location.pathname.split("/").filter((x) => x);
   return (
     // Main App
-    <div className="flex flex-col h-screen  overflow-hidden">
+    <div className="flex flex-col h-screen  ">
       {/* Header */}
-      <header className="h-12 bg-blue-500 shadow-lg z-50 text-white py-3 px-10 flex  justify-between ">
+      <header className="h-12 bg-blue-500 shadow-lg z-50 text-white py-3 px-10 flex  justify-between fixed  w-full">
         <div className="flex ">
+        <button onClick={() => setSidebarOpen(!isSidebarOpen)}>
+            <FontAwesomeIcon  className="mx-5 -ml-6"icon={isSidebarOpen ? faTimes : faBars} />
+          </button>
           <button onClick={() => navigate("/")}>
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
@@ -51,10 +58,11 @@ const MainLayout = () => {
           <p className="mx-3 text-nowrap">Hi , admin </p>
         </div>
       </header>
-
+      
       <div className="flex flex-grow ">
         {/* Sidebar */}
-        <nav className="  text-gray-400 bg-white shadow-xl z-10  flex border-r-2   w-56">
+        {isSidebarOpen && (
+        <nav className="  text-gray-400 bg-white shadow-xl z-10  flex border-r-2   w-56 fixed h-screen">
           <div className="  w-full px-0 py-10  border-b-2">
           
             <ul className="flex flex-col justify-between space-y-3 p-4  px-0  ">
@@ -66,7 +74,10 @@ const MainLayout = () => {
             </ul>
           </div>
         </nav>
-        <main className="flex-grow bg-blue-50 p-4 w-full overflow-auto ">
+      )}
+        {/* <main className="flex-grow bg-blue-50 p-4 w-full overflow-auto pl-[15rem] pt-[4rem]"> */}
+        <main className={`flex-grow bg-blue-50 p-4 w-full overflow-auto ${isSidebarOpen ? 'pl-[15rem]' : 'pl-4'} pt-[4rem]`}>
+
           {/* BreadCrumbBar */}
           <div className=" h-10 z-10 shadow-lg bg-white w-full m-1 flex items-center px-2">
             <nav aria-label="breadcrumb ">
@@ -104,11 +115,13 @@ const MainLayout = () => {
           </div>
 
           {/* Profile Viewer  */}
-          <div className=" h-5/6 overflow-auto">
+          <div className="  overflow-auto mx-auto ">
             <Outlet />
           </div>
         </main>
       </div>
+    
+
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolder } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "flowbite-react";
+import "../App.css";
 const colors = ["#C7D2FE", "#FEF3C7", "#FBCFE8", "#FEF08A", "#BBF7D0"];
 const colorClasses = [
   " text-blue-500",
@@ -11,25 +12,7 @@ const colorClasses = [
   " text-green-600",
 
 ];
-const ResponsiveIcon = styled(FontAwesomeIcon)`
-  font-size: 5rem;
 
-  @media (max-width: 1200px) {
-    font-size: 4rem;
-  }
-
-  @media (max-width: 992px) {
-    font-size: 3rem;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
-
-  @media (max-width: 576px) {
-    font-size: 1.5rem;
-  }
-`;
 
 const Files = ({ fileData, setFileData }) => {
   const [selectedTab, setSelectedTab] = useState('Work');
@@ -63,7 +46,7 @@ const Files = ({ fileData, setFileData }) => {
     closeModal();
   };
   return (
-    <div className=" z-10 shadow-lg bg-white  flex flex-col p-5  pt-3 ">
+    <div className=" z-10 shadow-lg bg-white  flex flex-col p-5  pt-3  ">
       <div className="flex items-center justify-between md:justify-start">
       <h1 className="text-gray-500 md:mr-80">Files</h1>
 
@@ -184,11 +167,11 @@ const Files = ({ fileData, setFileData }) => {
       </div> */}
 
       {/* Folders */}
-<div className="mt-4 transition-all duration-2000 ease-in-out flex flex-wrap">
+<div className="mt-4 transition-all duration-2000 ease-in-out ">
   {fileData.map((file, fileIndex) => (
     <div
       key={fileIndex}
-      className={`gap-1 flex flex-wrap ${selectedTab !== file.name ? "hidden" : ""}`}
+      className={`gap-1  flex whitespace-nowrap   ${selectedTab !== file.name ? "hidden" : ""}`}
     >
       {file.folders.map((folder, folderIndex) => {
         const colorClassIndex = folderIndex % colorClasses.length;
@@ -196,12 +179,12 @@ const Files = ({ fileData, setFileData }) => {
         return (
           <div
             key={folderIndex}
-            className="mr-4 hover:scale-105 transition-transform duration-200 relative "
+            className="mr-4 hover:scale-105 transition-transform duration-200 relative  "
           >
             <FontAwesomeIcon
               icon={faFolder}
               style={{ color: colors[folderIndex % colors.length] }}
-              size="5x"
+             className="icon"
             />
             <div
               className={`absolute inset-0 flex flex-col items-start text-2xs ml-2 mt-6 justify-center ${colorClass}`}

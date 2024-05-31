@@ -82,7 +82,7 @@ const TaskBoard = () => {
             <div className="grid  grid-cols-3  gap-x-0  p-2 py-3 border-b w-full " key={task.id}>
               <p className="w-1/4  text-2xs  ">{task.time}</p>
               <div className="grid grid-cols-2  items-center w-80
-             -ml-20">
+             -ml-20  ">
                <div className="grid grid-cols-2 gap-0 items-center "> <span
         className={` w-1 h-1 rounded-full  mx-4 ${getColor(task.status)}`}
                  

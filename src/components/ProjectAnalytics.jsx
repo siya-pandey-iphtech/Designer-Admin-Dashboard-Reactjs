@@ -97,7 +97,7 @@ export const ProjectAnalytics = () => {
     closeModal();
   };
   return (
-    <div className=" z-10 shadow-lg bg-white flex flex-col p-5 ">
+    <div className="h-full  z-10 shadow-lg bg-white flex flex-col p-5 ">
       <h1 className="  text-gray-400 mb-2">Projects </h1>
       <div className="w-full flex justify-center   ">
         <div className=" w-20 flex justify-center items-center">

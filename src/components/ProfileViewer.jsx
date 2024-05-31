@@ -46,7 +46,7 @@ console.log("fileCountsby type",fileCountsByType)
     <div>
       <div className="z-10 shadow-lg bg-white   flex justify-around items-center py-5 px-7">
         {/* Profile Image */}
-        <div className="flex flex-col justify-center items-center w-1/3">
+        <div className="flex flex-col justify-center items-center w-1/3 min-w-[7rem] max-w-[10rem]">
           <img className="w-full" src={Image} alt="Profile" />
           <span className="bg-pink-500 mt-3 text-2xs px-2 py-1 text-white rounded-full">
             PRO
