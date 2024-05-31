@@ -208,7 +208,7 @@ import Files from "./components/Files";
 const Profile = () => {
   const [fileData, setFileData] = useState(files);
   return (
-    <div className="container  p-4 pt-0 pl-1 w-fit overflow-x-auto">
+    <div className="container  p-4 pt-0 pl-1 w-full ">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {/* Left pane */}
         <div className="flex flex-col gap-5 min-w-[280px]">
@@ -229,16 +229,16 @@ const Profile = () => {
         </div>
         
         {/* Right pane */}
-        <div className="flex flex-col gap-5 h-full min-w-[280px]">
-          <div className="mt-4 min-w-[280px] mb-5">
+        <div className="flex flex-col gap-5 h-full min-w-[280px] w-full">
+          <div className="mt-4 min-w-[280px] mb-10">
             <Files fileData={fileData} setFileData={setFileData} />
           </div>
-          <div className="flex flex-col md:flex-row gap-5 min-w-[280px]">
+          <div className="flex flex-col md:flex-row gap-5 min-w-[280px] w-full ">
             <div className="flex-1 min-w-[350px]">
               <TaskBoard />
             </div>
             <div className="flex flex-col gap-5 min-w-[280px]">
-              <div className="min-w-[180px] max-w-[280px]">
+              <div className="min-w-[180px] max-w-[280px] z-10">
                 <MyCalender />
               </div>
               <div className="min-w-[180px]">

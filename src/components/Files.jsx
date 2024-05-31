@@ -50,7 +50,7 @@ const Files = ({ fileData, setFileData }) => {
       <div className="flex items-center justify-between md:justify-start">
       <h1 className="text-gray-500 md:mr-80">Files</h1>
 
-      <div>
+      <div className="">
           <button
             className=" border shadow-sm border-blue-400 text-xs text-blue-400 rounded-sm px-2 py-1 mt-1"
             onClick={openModal}
@@ -189,7 +189,7 @@ const Files = ({ fileData, setFileData }) => {
             <div
               className={`absolute inset-0 flex flex-col items-start text-2xs ml-2 mt-6 justify-center ${colorClass}`}
             >
-              <h3 className="font-bold text-xs">{folder.name}</h3>
+              <h3 className="font-bold text-2xs">{folder.name}</h3>
               <p>{folder.fileCount}</p>
             </div>
           </div>

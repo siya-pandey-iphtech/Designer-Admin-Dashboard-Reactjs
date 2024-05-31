@@ -76,7 +76,7 @@ const MainLayout = () => {
         </nav>
       )}
         {/* <main className="flex-grow bg-blue-50 p-4 w-full overflow-auto pl-[15rem] pt-[4rem]"> */}
-        <main className={`flex-grow bg-blue-50 p-4 w-full overflow-auto ${isSidebarOpen ? 'pl-[15rem]' : 'pl-4'} pt-[4rem]`}>
+        <main className={`flex-grow bg-blue-50 p-4 w-full  ${isSidebarOpen ? 'pl-[15rem]' : 'pl-4'} pt-[4rem]`}>
 
           {/* BreadCrumbBar */}
           <div className=" h-10 z-10 shadow-lg bg-white w-full m-1 flex items-center px-2">
@@ -115,7 +115,7 @@ const MainLayout = () => {
           </div>
 
           {/* Profile Viewer  */}
-          <div className="  overflow-auto mx-auto ">
+          <div className="  overflow-auto mx-auto overflow-x-auto ">
             <Outlet />
           </div>
         </main>
